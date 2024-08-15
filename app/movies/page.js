@@ -1,3 +1,4 @@
+'use client';
 import { MoviePage } from '../components/moviepage';
 import { ProtectedRoute } from '../components/protectedroute';
 import { NavBar } from '../components/navbar';
