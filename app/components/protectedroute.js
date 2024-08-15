@@ -4,14 +4,14 @@ import { useRouter } from 'next/navigation';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '@/firebase';
 
-const ProtectedRoute = ({ children }) => {
+export function ProtectedRoute({ children }) {  
   const [user, loading] = useAuthState(auth);
   const router = useRouter();
 
   useEffect(() => {
     if (typeof window !== 'undefined') { 
       if (!loading && !user) {
-        router.push('/home'); 
+        router.push('/login'); 
       }
     }
   }, [user, loading, router]);
@@ -22,5 +22,3 @@ const ProtectedRoute = ({ children }) => {
 
   return children;
 }
-
-export default ProtectedRoute;
